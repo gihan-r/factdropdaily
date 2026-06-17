@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FactDropDaily — Premium Daily News & Facts Portal</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Get your daily dose of amazing facts mixed with top world news, technology, science, health, sports, and entertainment." />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FactDropDaily — Premium Daily News & Facts Portal" />
+  <meta property="og:description" content="Get your daily dose of amazing facts mixed with top world news, technology, science, health, sports, and entertainment." />
+  <meta property="og:url" content="/" />
+  <meta property="og:image" content="/logo.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FactDropDaily — Premium Daily News & Facts Portal" />
+  <meta name="twitter:description" content="Get your daily dose of amazing facts mixed with top world news, technology, science, health, sports, and entertainment." />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/index.css" />
+
+  <!-- FontAwesome for standard icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Inline script to prevent theme flashing on reload -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- AdSense Slots: Leaderboard (Header) -->
+  <div id="ad-header-leaderboard" class="ad-slot-card ad-leaderboard" data-slot="headerLeaderboard">
+    <div class="ad-slot-label">Advertisement</div>
+    <div class="ad-slot-size">Leaderboard (728 x 90)</div>
+  </div>
+
+  <!-- Header Section -->
+  <header class="header-wrapper">
+    <div class="header-container">
+      <a href="/" class="logo" id="site-logo">
+        FactDrop<span>Daily</span>
+      </a>
+
+      <!-- Hamburger toggle for mobile -->
+      <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Main Navigation Menu -->
+      <nav class="nav-links" id="main-navigation">
+        <a href="/" class="nav-item active" data-path="/">Home</a>
+        <a href="/category/world" class="nav-item" data-path="/category/world">World</a>
+        <a href="/category/technology" class="nav-item" data-path="/category/technology">Tech</a>
+        <a href="/category/science" class="nav-item" data-path="/category/science">Science</a>
+        <a href="/category/health" class="nav-item" data-path="/category/health">Health</a>
+        <a href="/category/space" class="nav-item" data-path="/category/space">Space</a>
+        <a href="/category/animals" class="nav-item" data-path="/category/animals">Animals</a>
+        <a href="/facts" class="nav-item" data-path="/facts">Facts Archive</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Search bar -->
+        <form class="search-form" id="header-search-form">
+          <input type="text" class="search-input" id="search-input-field" placeholder="Search facts & news..." required />
+          <button type="submit" class="search-btn" aria-label="Search button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+
+        <!-- Dark/Light Theme Toggle -->
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle light and dark mode theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breaking News Ticker -->
+  <div class="ticker-wrap" id="breaking-news-ticker" style="display: none;">
+    <div class="ticker-title">Breaking</div>
+    <div class="ticker-content-container">
+      <div class="ticker-scroll" id="ticker-items-container">
+        <!-- Ticker items dynamically generated -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Grid Wrapper -->
+  <main class="main-wrapper" id="main-content-layout">
+    
+    <!-- Left Column: Content Views -->
+    <section class="main-content" id="app-view-container">
+      <!-- SPA views injected here -->
+      <div class="loading-state" style="text-align: center; padding: 48px;">
+        <i class="fa-solid fa-spinner fa-spin fa-2xl" style="color: var(--orange);"></i>
+      </div>
+    </section>
+
+    <!-- Right Column: Sidebar -->
+    <aside class="sidebar" id="sidebar-layout-container">
+      
+      <!-- Ad slot: Sidebar top -->
+      <div id="ad-sidebar-top" class="ad-slot-card ad-sidebar-top" data-slot="sidebarTop">
+        <div class="ad-slot-label">Advertisement</div>
+        <div class="ad-slot-size">Sidebar Top (300 x 250)</div>
+      </div>
+
+      <!-- Trending/Most Read widget -->
+      <div class="sidebar-box">
+        <h3 class="sidebar-title">Trending Today</h3>
+        <div class="trending-list" id="trending-posts-sidebar">
+          <!-- Inject trending items -->
+        </div>
+      </div>
+
+      <!-- Ad slot: Sidebar bottom -->
+      <div id="ad-sidebar-bottom" class="ad-slot-card ad-sidebar-bottom" data-slot="sidebarBottom">
+        <div class="ad-slot-label">Advertisement</div>
+        <div class="ad-slot-size">Sidebar Bottom (300 x 250)</div>
+      </div>
+
+      <!-- Newsletter subscription form widget -->
+      <div class="sidebar-box">
+        <h3 class="sidebar-title">Newsletter</h3>
+        <form class="newsletter-form" id="newsletter-form-element">
+          <p class="newsletter-text">Subscribe to get a weekly facts and world news digest directly in your inbox.</p>
+          <input type="email" class="newsletter-input" id="newsletter-email-field" placeholder="Enter your email..." required />
+          <button type="submit" class="newsletter-submit-btn">Subscribe</button>
+          <div class="newsletter-msg" id="newsletter-msg-box"></div>
+        </form>
+      </div>
+
+    </aside>
+  </main>
+
+  <!-- AdSense Slots: Sticky Bottom Mobile Banner -->
+  <div id="ad-mobile-sticky-bottom" class="ad-slot-card ad-sticky-bottom" data-slot="mobileStickyBottom" style="display: none;">
+    <div class="ad-slot-label">Advertisement</div>
+    <div class="ad-slot-size">Mobile Banner (320 x 50)</div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>FactDrop<span>Daily</span></h3>
+        <p>Combining the world's most amazing curated facts from Blogger with breaking world headlines from around the globe. Stay updated every minute.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Content</h4>
+        <ul class="footer-links">
+          <li><a href="/category/world">World News</a></li>
+          <li><a href="/category/technology">Technology</a></li>
+          <li><a href="/category/science">Science</a></li>
+          <li><a href="/category/health">Health</a></li>
+          <li><a href="/facts">Facts Archive</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Legal & Contact</h4>
+        <ul class="footer-links">
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/admin">Admin Panel</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 FactDropDaily. All rights reserved.</p>
+      <p>Powered by Node.js & MongoDB</p>
+    </div>
+  </footer>
+
+  <!-- Admin Post Editor Modal Backdrop -->
+  <div class="modal-backdrop" id="admin-edit-modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="modal-title-text">Edit Article</h3>
+        <button class="modal-close" id="modal-close-btn">&times;</button>
+      </div>
+      <form id="admin-post-edit-form">
+        <input type="hidden" id="edit-post-id" />
+        <div class="form-group">
+          <label for="edit-post-title">Title</label>
+          <input type="text" class="form-control" id="edit-post-title" required />
+        </div>
+        <div class="form-group" id="edit-post-content-group">
+          <label for="edit-post-content">Content (HTML)</label>
+          <textarea class="form-control" id="edit-post-content" rows="6"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="edit-post-excerpt">Excerpt / Summary</label>
+          <textarea class="form-control" id="edit-post-excerpt" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="edit-post-image">Image URL</label>
+          <input type="text" class="form-control" id="edit-post-image" />
+        </div>
+        <div class="form-group">
+          <label for="edit-post-category">Category</label>
+          <select class="form-control" id="edit-post-category">
+            <option value="World">World</option>
+            <option value="Technology">Technology</option>
+            <option value="Science">Science</option>
+            <option value="Health">Health</option>
+            <option value="Sports">Sports</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Space">Space</option>
+            <option value="Animals">Animals</option>
+            <option value="General">General</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="edit-post-status">Status</label>
+          <select class="form-control" id="edit-post-status">
+            <option value="active">Active</option>
+            <option value="hidden">Hidden</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="modal-cancel-btn">Cancel</button>
+          <button type="submit" class="btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SPA Router Logic Script -->
+  <script src="/index.js"></script>
+</body>
+</html>
