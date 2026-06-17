@@ -220,10 +220,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadSiteConfig();
   await loadBreakingTicker();
   await loadSidebarTrending();
-  
-  // Start router
-  handleRoute(window.location.pathname);
+
+  // Start router — then dismiss the site loader
+  await handleRoute(window.location.pathname);
+  hideSiteLoader();
 });
+
+function hideSiteLoader() {
+  const loader = document.getElementById('site-loader');
+  if (loader) {
+    loader.classList.add('hidden');
+    // Remove from DOM after transition so it never blocks clicks
+    loader.addEventListener('transitionend', () => loader.remove(), { once: true });
+  }
+}
 
 function setupTheme() {
   const icon = els.themeToggle.querySelector('i');
@@ -478,7 +488,7 @@ function getAdDimensions(slotName) {
  * CLIENT ROUTER & VIEW RENDERING
  * ========================================================== */
 
-function handleRoute(path) {
+async function handleRoute(path) {
   state.currentPath = path;
 
   // Active header link indicator
@@ -504,33 +514,33 @@ function handleRoute(path) {
 
   // Exact Routing Matches
   if (path === '/' || path === '') {
-    renderHomeView();
+    await renderHomeView();
   } else if (path === '/facts') {
-    renderFactsArchiveView();
+    await renderFactsArchiveView();
   } else if (path === '/trending') {
-    renderTrendingView();
+    await renderTrendingView();
   } else if (path === '/breaking') {
-    renderBreakingView();
+    await renderBreakingView();
   } else if (path.startsWith('/category/')) {
     const catName = path.split('/category/')[1];
-    renderCategoryView(catName);
+    await renderCategoryView(catName);
   } else if (path.startsWith('/search')) {
     const params = new URLSearchParams(window.location.search);
-    renderSearchView(params.get('q'));
+    await renderSearchView(params.get('q'));
   } else if (path.startsWith('/article/')) {
     const slug = path.split('/article/')[1];
-    renderArticleView(slug);
+    await renderArticleView(slug);
   } else if (path.startsWith('/news/')) {
     const slug = path.split('/news/')[1];
-    renderNewsView(slug);
+    await renderNewsView(slug);
   } else if (path === '/admin') {
-    renderAdminView();
+    await renderAdminView();
   } else if (path === '/about') {
-    renderAboutView();
+    await renderAboutView();
   } else if (path === '/contact') {
-    renderContactView();
+    await renderContactView();
   } else if (path === '/privacy') {
-    renderPrivacyView();
+    await renderPrivacyView();
   } else {
     render404();
   }
@@ -562,9 +572,35 @@ function handleRoute(path) {
 }
 
 function renderLoading() {
+  // Helper to build one skeleton card
+  function skCard() {
+    return `
+      <div class="skeleton-card">
+        <div class="skeleton-card-img skeleton-base"></div>
+        <div class="skeleton-card-body">
+          <div class="skeleton-line sk-w-30 skeleton-base"></div>
+          <div class="skeleton-line sk-w-100 skeleton-base"></div>
+          <div class="skeleton-line sk-w-80 skeleton-base"></div>
+          <div class="skeleton-line sk-w-60 skeleton-base" style="margin-top:4px;"></div>
+          <div style="display:flex; justify-content:space-between; margin-top:8px;">
+            <div class="skeleton-line sk-w-30 skeleton-base"></div>
+            <div class="skeleton-line sk-w-30 skeleton-base"></div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   els.appView.innerHTML = `
-    <div style="display:flex; justify-content:center; align-items:center; min-height:400px;">
-      <i class="fa-solid fa-spinner fa-spin fa-2xl" style="color:var(--orange);"></i>
+    <!-- Hero skeleton -->
+    <div class="skeleton-hero skeleton-base"></div>
+
+    <!-- Section title skeleton -->
+    <div class="skeleton-section-title skeleton-base"></div>
+
+    <!-- Card grid skeleton (6 cards) -->
+    <div class="news-grid">
+      ${Array.from({ length: 6 }).map(() => skCard()).join('')}
     </div>
   `;
 }

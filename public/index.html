@@ -37,6 +37,13 @@
 </head>
 <body>
 
+  <!-- Site loading overlay (dismissed by JS after first view renders) -->
+  <div id="site-loader">
+    <div class="site-loader-logo">FactDrop<span>Daily</span></div>
+    <div class="site-loader-bar-wrap"></div>
+    <p class="site-loader-tagline">Loading your daily facts &amp; news&hellip;</p>
+  </div>
+
   <!-- AdSense Slots: Leaderboard (Header) -->
   <div id="ad-header-leaderboard" class="ad-slot-card ad-leaderboard" data-slot="headerLeaderboard">
     <div class="ad-slot-label">Advertisement</div>
@@ -100,9 +107,6 @@
     <!-- Left Column: Content Views -->
     <section class="main-content" id="app-view-container">
       <!-- SPA views injected here -->
-      <div class="loading-state" style="text-align: center; padding: 48px;">
-        <i class="fa-solid fa-spinner fa-spin fa-2xl" style="color: var(--orange);"></i>
-      </div>
     </section>
 
     <!-- Right Column: Sidebar -->

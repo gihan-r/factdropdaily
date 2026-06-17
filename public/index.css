@@ -1355,3 +1355,162 @@ footer {
     text-align: center;
   }
 }
+
+/* ============================================================
+ * SITE LOADING OVERLAY
+ * ============================================================ */
+#site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--navy-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  transition: opacity 0.55s ease, visibility 0.55s ease;
+}
+
+[data-theme="light"] #site-loader {
+  background: #f4f6f9;
+}
+
+#site-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.site-loader-logo {
+  font-family: var(--font-brand);
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  animation: loader-pulse 1.5s ease-in-out infinite alternate;
+}
+
+[data-theme="light"] .site-loader-logo {
+  color: var(--navy);
+}
+
+.site-loader-logo span {
+  color: var(--orange);
+}
+
+@keyframes loader-pulse {
+  from { opacity: 0.7; }
+  to   { opacity: 1; }
+}
+
+.site-loader-bar-wrap {
+  width: 220px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+}
+
+[data-theme="light"] .site-loader-bar-wrap {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.site-loader-bar-wrap::after {
+  content: '';
+  position: absolute;
+  left: -60%;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--orange), transparent);
+  animation: loader-sweep 1.1s ease-in-out infinite;
+}
+
+@keyframes loader-sweep {
+  0%   { left: -60%; }
+  100% { left: 110%; }
+}
+
+.site-loader-tagline {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+ * SKELETON CARD LOADER (shimmer)
+ * ============================================================ */
+@keyframes skeleton-shimmer {
+  0%   { background-position: -800px 0; }
+  100% { background-position: 800px 0; }
+}
+
+.skeleton-base {
+  background: linear-gradient(
+    90deg,
+    var(--panel-color) 25%,
+    rgba(255, 255, 255, 0.06) 50%,
+    var(--panel-color) 75%
+  );
+  background-size: 1600px 100%;
+  animation: skeleton-shimmer 1.6s infinite linear;
+  border-radius: 6px;
+}
+
+[data-theme="light"] .skeleton-base {
+  background: linear-gradient(
+    90deg,
+    #e2e5eb 25%,
+    #f0f2f5 50%,
+    #e2e5eb 75%
+  );
+  background-size: 1600px 100%;
+  animation: skeleton-shimmer 1.6s infinite linear;
+}
+
+.skeleton-hero {
+  width: 100%;
+  height: 380px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.skeleton-card {
+  background: var(--panel-color);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.skeleton-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.skeleton-card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skeleton-line {
+  height: 13px;
+  border-radius: 4px;
+}
+
+.sk-w-100 { width: 100%; }
+.sk-w-80  { width: 80%; }
+.sk-w-60  { width: 60%; }
+.sk-w-40  { width: 40%; }
+.sk-w-30  { width: 30%; }
+
+.skeleton-section-title {
+  height: 22px;
+  width: 200px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
