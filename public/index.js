@@ -2,7 +2,7 @@
  * FactDropDaily SPA Core JavaScript
  */
 
-const API_BASE = '/api';
+const API_BASE = 'https://factdropdaily-production.up.railway.app/api';
 
 // Application State
 const state = {

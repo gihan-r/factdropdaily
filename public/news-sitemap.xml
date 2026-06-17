@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://factdropdaily.com/article/10-incredible-facts-about-animals-that-will-surprise-you-fbe127</loc>
+    <news:news>
+      <news:publication>
+        <news:name>FactDropDaily</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-06-17T08:00:00.000Z</news:publication_date>
+      <news:title>10 Incredible Facts About Animals That Will Surprise You</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://factdropdaily.com/article/10-mind-blowing-facts-about-space-that-sound-like-fiction-5f1a27</loc>
     <news:news>
       <news:publication>
@@ -20,28 +31,6 @@
       </news:publication>
       <news:publication_date>2026-06-16T08:00:00.000Z</news:publication_date>
       <news:title>10 Surprising Facts About Sleep That Will Change Your Bedtime Routine</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://factdropdaily.com/article/10-amazing-facts-about-the-ocean-you-probably-didnt-know-f1375f</loc>
-    <news:news>
-      <news:publication>
-        <news:name>FactDropDaily</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-06-15T08:00:00.000Z</news:publication_date>
-      <news:title>10 Amazing Facts About the Ocean You Probably Didn&apos;t Know</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://factdropdaily.com/article/10-mind-blowing-facts-about-the-human-brain-you-never-knew-ea1194</loc>
-    <news:news>
-      <news:publication>
-        <news:name>FactDropDaily</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-06-15T04:49:13.960Z</news:publication_date>
-      <news:title>10 Mind-Blowing Facts About the Human Brain You Never Knew</news:title>
     </news:news>
   </url>
 </urlset>
