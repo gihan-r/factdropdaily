@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FactDropDaily — Premium Daily News & Facts Portal</title>
-  
+  <title>FactDropDaily</title>
+  <meta name="google-site-verification" content="k3ZlvwgqxW-HStJFnxJatkveEmPITUyXgOjTVGDYnVg" />
+
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Get your daily dose of amazing facts mixed with top world news, technology, science, health, sports, and entertainment." />
+  <meta name="description"
+    content="Get your daily dose of amazing facts mixed with top world news, technology, science, health, sports, and entertainment." />
   <meta name="robots" content="index, follow" />
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="FactDropDaily — Premium Daily News & Facts Portal" />
-  <meta property="og:description" content="Get your daily dose of amazing facts mixed with top world news, technology, science, health, sports, and entertainment." />
+  <meta property="og:description"
+    content="Get your daily dose of amazing facts mixed with top world news, technology, science, health, sports, and entertainment." />
   <meta property="og:url" content="/" />
   <meta property="og:image" content="/logo.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="FactDropDaily — Premium Daily News & Facts Portal" />
-  <meta name="twitter:description" content="Get your daily dose of amazing facts mixed with top world news, technology, science, health, sports, and entertainment." />
+  <meta name="twitter:description"
+    content="Get your daily dose of amazing facts mixed with top world news, technology, science, health, sports, and entertainment." />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/index.css" />
 
   <!-- FontAwesome for standard icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Inline script to prevent theme flashing on reload -->
   <script>
-    (function() {
+    (function () {
       const savedTheme = localStorage.getItem('theme') || 'dark';
       document.documentElement.setAttribute('data-theme', savedTheme);
     })();
   </script>
 </head>
+
 <body>
 
   <!-- Site loading overlay (dismissed by JS after first view renders) -->
@@ -77,7 +85,8 @@
       <div class="header-actions">
         <!-- Search bar -->
         <form class="search-form" id="header-search-form">
-          <input type="text" class="search-input" id="search-input-field" placeholder="Search facts & news..." required />
+          <input type="text" class="search-input" id="search-input-field" placeholder="Search facts & news..."
+            required />
           <button type="submit" class="search-btn" aria-label="Search button">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -103,7 +112,7 @@
 
   <!-- Main Grid Wrapper -->
   <main class="main-wrapper" id="main-content-layout">
-    
+
     <!-- Left Column: Content Views -->
     <section class="main-content" id="app-view-container">
       <!-- SPA views injected here -->
@@ -111,7 +120,7 @@
 
     <!-- Right Column: Sidebar -->
     <aside class="sidebar" id="sidebar-layout-container">
-      
+
       <!-- Ad slot: Sidebar top -->
       <div id="ad-sidebar-top" class="ad-slot-card ad-sidebar-top" data-slot="sidebarTop">
         <div class="ad-slot-label">Advertisement</div>
@@ -137,7 +146,8 @@
         <h3 class="sidebar-title">Newsletter</h3>
         <form class="newsletter-form" id="newsletter-form-element">
           <p class="newsletter-text">Subscribe to get a weekly facts and world news digest directly in your inbox.</p>
-          <input type="email" class="newsletter-input" id="newsletter-email-field" placeholder="Enter your email..." required />
+          <input type="email" class="newsletter-input" id="newsletter-email-field" placeholder="Enter your email..."
+            required />
           <button type="submit" class="newsletter-submit-btn">Subscribe</button>
           <div class="newsletter-msg" id="newsletter-msg-box"></div>
         </form>
@@ -147,7 +157,8 @@
   </main>
 
   <!-- AdSense Slots: Sticky Bottom Mobile Banner -->
-  <div id="ad-mobile-sticky-bottom" class="ad-slot-card ad-sticky-bottom" data-slot="mobileStickyBottom" style="display: none;">
+  <div id="ad-mobile-sticky-bottom" class="ad-slot-card ad-sticky-bottom" data-slot="mobileStickyBottom"
+    style="display: none;">
     <div class="ad-slot-label">Advertisement</div>
     <div class="ad-slot-size">Mobile Banner (320 x 50)</div>
   </div>
@@ -157,7 +168,8 @@
     <div class="footer-container">
       <div class="footer-brand">
         <a href="/" class="logo" id="footer-logo">FactDrop<span>Daily</span></a>
-        <p>Combining the world's most amazing curated facts from Blogger with breaking world headlines from around the globe. Stay updated every minute.</p>
+        <p>Combining the world's most amazing curated facts from Blogger with breaking world headlines from around the
+          globe. Stay updated every minute.</p>
       </div>
       <div class="footer-column">
         <h4>Content</h4>
@@ -242,4 +254,5 @@
   <!-- SPA Router Logic Script -->
   <script src="/index.js"></script>
 </body>
+
 </html>
