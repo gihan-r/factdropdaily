@@ -14,7 +14,7 @@ const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const newsletterRoutes = require('./routes/newsletter');
 const siteRoutes = require('./routes/site');
-
+const fs = require('fs');
 const app = express();
 
 // --- Core middleware ---
@@ -87,3 +87,24 @@ async function start() {
 start();
 
 module.exports = app;
+
+// Sitemap routes - serve dynamically generated files
+app.get('/sitemap.xml', (req, res) => {
+  const sitemapPath = path.join(__dirname, '..', 'public', 'sitemap.xml');
+  if (fs.existsSync(sitemapPath)) {
+    res.header('Content-Type', 'application/xml');
+    res.sendFile(sitemapPath);
+  } else {
+    res.status(404).json({ error: 'Sitemap not generated yet' });
+  }
+});
+
+app.get('/news-sitemap.xml', (req, res) => {
+  const sitemapPath = path.join(__dirname, '..', 'public', 'news-sitemap.xml');
+  if (fs.existsSync(sitemapPath)) {
+    res.header('Content-Type', 'application/xml');
+    res.sendFile(sitemapPath);
+  } else {
+    res.status(404).json({ error: 'News sitemap not generated yet' });
+  }
+});

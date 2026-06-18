@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://factdropdaily-production.up.railway.app/sitemap.xml
+Sitemap: https://factdropdaily-production.up.railway.app/news-sitemap.xml
